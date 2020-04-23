@@ -76,6 +76,10 @@
            justify-content: center;
            padding: 20px;
         }
+        #warning{
+            display: none;
+            color: red;
+        }
       
     </style>
 </head>
@@ -113,7 +117,7 @@
             </tr>
             <tr>
                 <td>ID:</td>
-                <td><input type="text" id="idnumber" /></td>
+                <td><input type="text" id="idnumber" /><span id="warning">ID already exists!</span></td>
             </tr>
             <tr>
                 <td>Description:</td>
