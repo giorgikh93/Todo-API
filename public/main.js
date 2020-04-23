@@ -133,3 +133,33 @@ search.onkeyup = () => {
         updateTable(todos)
     })
 }
+
+idnumber.onblur = () => {
+    let id = $('#idnumber').val()
+    $.ajax({
+        url: TODOS_API,
+        type: 'GET'
+    }).done((result) => {
+        for (let i = 0; i < result.length; i++) {
+            if (id == todoList[i].id && id != '') {
+                idnumber.style.borderColor = 'red';
+                idnumber.style.borderStyle = 'dashed';
+                warning.style.display = 'block'
+                submit.disabled = true;
+                submit.style.opacity = '0.5';
+            }
+        }
+    })
+}
+
+idnumber.onfocus = () => {
+    $('#idnumber').css({
+        borderColor: 'rgb(197, 194, 194)',
+        borderStyle:'solid',
+        borderWidth: '1px'
+    })
+    submit.disabled = false;
+    submit.style.opacity = '1';
+    warning.style.display = 'none'
+}
+
